@@ -1,12 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ES">
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Cosechando Esperanza</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&family=Montserrat:wght@500;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.min.css">
+<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+<style>
+.hidden{
+   display: none;
+}
+</style>
+<title>Cosechando Esperanza | Sistema de Administración</title>
 </head>
 <body>
-   
+<div id="wrapper">
+
+   <div id="sidebar" class="siderbar show">
+      <header id="header"><figure><img src="img/logo_ce_leyenda.png" alt="Cosechando Esperanza"></figure></header>
+      <nav id="nav" class="navMain">
+         <a href="#inicio" class="navMainSubmenuTitle" data-section="inicio">Inicio</a>
+         <a href="#usuariosComunes" class="navMainSubmenuTitle" data-section="usuariosComunes">Usuarios</a>
+      </nav>
+      <div id="usuarioDisplayData">
+         <div id="nombreUsuarioWrapper">
+            Usuario: <span class="nombreUsuarioSpan"></span>
+         </div>
+         <button id="btnLogout" class="btnLogout">Salir del sistema</button>
+      </div>
+   </div>
+
+   <main id="main">
+
+      <section id="inicio" class=" section show">
+         <div class="modeloHeader">
+            <h2 class="textS2">Inicio</h2>
+         </div>
+      </section>
+
+      <section id="usuariosComunes" class="modeloWrapper section hidden show">
+         <div class="modeloHeader">
+            <h2 class="textS2">Usuarios</h2>
+         </div>
+         <div class="navigationTabContainer">
+            <div class="modeloMenu navigationTabsWrapper">
+               <button class="navigationTabItem modeloMenuItem">Registrar</button>
+               <button class="navigationTabItem modeloMenuItem">Buscar</button>
+            </div>
+            <div class="navigationTabSectionsWrapper modelSectionsCRUD">
+
+               <!-- TAP Registrar -->
+               <div class="modeloRegistrar navigationTabSection show">
+                  <h3>Registrar</h3>
+                  <div class="formWrapper"></div>
+               </div>
+
+               <!-- TAP Buscar / Actualizar -->
+               <div class="modeloBuscar navigationTabSection hidden">
+                  <h3>Buscar Usuarios</h3>
+                  <!-- formulario de Búsqueda -->
+                  <form class="formBuscar formS1">
+                     <div class="formS1fielsWrapper">
+                        <input type="text" name="queryValue" placeholder="Nombre, CURP o Correo" value="_" required>
+                        <select name="queryKey">
+                           <option value="nombre" >Nombre</option>
+                           <option value="curp">CURP</option>
+                           <option value="correo">Correo</option>
+                           <option value="numeroCelular">Numero de Celular</option>
+                        </select>
+                        <input type="submit" value="Buscar" class="btnReadSingleForm">
+                     </div>
+                     <div class="messageForm hidden"></div>
+                  </form>
+                  <!-- Resultados de Búsqueda -->
+                  <div class="listaResultadosWrapper"></div>
+                  <!-- Actualizar -->
+                  <div class="modeloActualizar show hidden">
+                     <div class="formTop"><button class="btnCloseForm">X</button></div>
+                     <div class="formWrapper"></div>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </section><!-- #usuariosComunes -->
+
+   </main>
+
+   <section id="portada" class="portada">
+      <div class="fotoPortada"><figure><img src="img/logo_ce_leyenda.png" alt="Logo BF" style="width: 100%"></figure></div>
+      <div class="formPortadaWrapper show"></div>
+   </section><!-- #portada -->
+
+</div><!-- #wrapper -->
+
+<script src="js/components.min.js" defer></script>
+<script src="js/scripts.min.js"></script>
+<script src="js/usuariosComunes.js"></script>
+<script src="js/app.min.js" defer></script>
+
 </body>
 </html>
